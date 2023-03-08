@@ -67,7 +67,7 @@ python predictor-GBDT-regression.py --dataset test
 
 ## Reference
 
-1. Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder, in print (2023).
+1. Hongsong Feng, Jian Jiang, Guo-Wei Wei, Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder, in print (2023).
 
 2. Dong Chen, Jiaxin Zheng, Guo-Wei Wei, and Feng Pan. Extracting predictive representations from
 hundreds of millions of molecules. The Journal of Physical Chemistry Letters, 12(44):10793–10801, 2021.
