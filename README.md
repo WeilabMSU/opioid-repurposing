@@ -1,7 +1,7 @@
 # Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder
 
 ---
-This script is for the paper "Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder". With the script, machine-learning regression model based on natural language processing (NLP) method can be built.
+This script is for the paper "Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder". With the script, binding affinities of molecular compounds on MOR, KOR, DOR, and hERG are be predicted.
 
 ## Requirements
 
