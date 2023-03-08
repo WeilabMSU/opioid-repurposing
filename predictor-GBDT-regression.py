@@ -52,6 +52,9 @@ for receptor in receptors:
 
 preds = np.transpose(preds).tolist()
 
+if not os.path.exists('predictions'):
+    os.mkdir('predictions')
+    
 df = pd.DataFrame(preds,columns=receptors)
 df.round(2).to_csv('predictions/preds.csv',index=False)
 
