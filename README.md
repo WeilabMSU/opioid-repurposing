@@ -49,7 +49,7 @@ python fingerprint-ecfp.py --dataset test
 The generated features are saved in the folder "features".
 
 ## Use GBDT models to predict the binding affinities of the molecular compounds on proteins including MOR,KOR,DOR, and hERG.
-Below is the script used to predict the binding affinities using models based on transformer and ECFP fingerprints.
+Below is the script used to predict the binding affinities using models based on transformer and ECFP fingerprints. The prediction results can be found in "prediction" folder.
 
 ```python
 cd opioid-repurposing
