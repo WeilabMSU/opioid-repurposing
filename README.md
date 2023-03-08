@@ -48,6 +48,15 @@ python fingerprint-ecfp.py --dataset test
 ```
 The generated features are saved in the folder "features".
 
+## Download the GBDT models built with two types of molecular fingerprints. 
+Download the trained regression models for predicting binding affiinties on MOR, KOR, DOR, and hERG.
+
+```shell
+cd opioid-repurposing
+wget https://weilab.math.msu.edu/Downloads/models-opioid.zip
+unzip models-opioid.zip
+```
+
 ## Use GBDT models to predict the binding affinities of the molecular compounds on proteins including MOR,KOR,DOR, and hERG.
 Below is the script used to predict the binding affinities using models based on transformer and ECFP fingerprints. The prediction results can be found in "prediction" folder.
 
