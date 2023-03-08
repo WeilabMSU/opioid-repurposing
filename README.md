@@ -1,7 +1,7 @@
-# Machine-learning Analysis of Opioid Use Disorder Informed by MOR, DOR, KOR, NOR and ZOR-Based Interactome Networks
+# Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder
 
 ---
-This script is for the paper "Machine-learning Analysis of Opioid Use Disorder Informed by MOR, DOR, KOR, NOR and ZOR-Based Interactome Networks". With the script, machine-learning regression model based on natural language processing (NPL) method can be built.
+This script is for the paper "Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder". With the script, machine-learning regression model based on natural language processing (NLP) method can be built.
 
 ## Requirements
 
@@ -25,39 +25,40 @@ Python Dependencies
 Download the repository from Github
 ```shell
 # download repository by git
-git clone https://github.com/WeilabMSU/OUD_PPI.git
+git clone https://github.com/WeilabMSU/opioid-repurposing.git
 ```
 ## Install the pretrained model for molecular fingerprint generation
 
-The feature generation follows the work "Extracting Predictive Representations from Hundreds of Millions of Molecules" by Dong Chen, Jiaxin Zheng, Guo-Wei Wei, and Feng Pan." The pretrained model in their work was built based on transformer NPL techniques and is utilized to generate molecular features here. In addition, Extended-connectivity fingerprints (ECFPs) is utilized.
+The feature generation follows the work "Extracting Predictive Representations from Hundreds of Millions of Molecules" by Dong Chen, Jiaxin Zheng, Guo-Wei Wei, and Feng Pan." The pretrained model in their work was built based on transformer NPL techniques and is utilized to generate molecular features. In addition, Extended-connectivity fingerprints (ECFPs) is utilized.
 
-Download and install the pretrained model under the downloaded OUD_PPI folder.
+Download and install the pretrained model under the downloaded opioid-repurposing folder.
 
 ```shell
-cd repurposing_OUD
+cd opioid-repurposing
 bash install-transformer.sh
 ```
 
 ## Generate molecular fingerprints
-The input for our feature generation model is *.smi file, which stores molecules of SMILES format. The command below can be used to generate transformer-based molecular fingerprints. An example *.smi file is given as MOR.smi
+The input for our feature generation model is *.smi file, which stores molecules of SMILES format. The command below can be used to generate transformer-based and ECFPs molecular fingerprints. An example test.smi file is given.
 
 ```python
-cd OUD_PPI
-python fp-generation.py --path-to-smi MOR.smi
+cd opioid-repurposing
+python fingerprint-transformer.py --dataset test
+python fingerprint-ecfp.py --dataset test
 ```
 The generated features are saved in the folder "features".
 
-## Build GBDT model with the transformer-based molecular fingerprints
-Below is the script used to build gradient boosting decision tree (model) machine-learning model using the generated transformer-based molecular fingerpints. An example feature file and label file are given as MOR.npy and MOR.csv. The generated machine-learning model is save in the "path-models" folder.
+## Use GBDT models to predict the binding affinities of the molecular compounds on proteins including MOR,KOR,DOR, and hERG.
+Below is the script used to predict the binding affinities using models based on transformer and ECFP fingerprints.
 
 ```python
-cd OUD_PPI
-python build-GBDT-regression.py --feature_path features/MOR.npy --label_path MOR.csv --save_model_name MOR
+cd opioid-repurposing
+python predictor-GBDT-regression.py --dataset test
 ```
 
 ## Reference
 
-1. Machine-learning Analysis of Opioid Use Disorder Informed by MOR, DOR, KOR, NOR and ZOR-Based Interactome Networks, in print (2023).
+1. Machine-learning Repurposing of DrugBank Compounds for Opioid Use Disorder, in print (2023).
 
 2. Dong Chen, Jiaxin Zheng, Guo-Wei Wei, and Feng Pan. Extracting predictive representations from
 hundreds of millions of molecules. The Journal of Physical Chemistry Letters, 12(44):10793–10801, 2021.
